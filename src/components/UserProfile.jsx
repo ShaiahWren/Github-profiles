@@ -5,10 +5,10 @@ import { BrowserRouter as Route, Link } from 'react-router-dom';
 
 
 const UserProfile = props => {
-    // const {users} = props
+    const {users} = props
     const { username } = useParams();
-    const users = users.find((user) => {
-        return users.login === username ? user : null;
+    const user = users.find((user) => {
+        return user.login === username ? user : null;
     });
 
     const [repoData, setRepos] = useState([]);
@@ -25,11 +25,11 @@ const UserProfile = props => {
 
     return (
        <>
-       {!!users ? (
+       {!!user ? (
            <>
-           <p>{users.name}</p>
-           <p>{users.location}</p>
-           <p>{users.bio}</p>
+           <p>{user.name}</p>
+           <p>{user.location}</p>
+           <p>{user.bio}</p>
            <ul>
                {repoData.map((repo) => (
                     <li key={repo.id}>{repo.name}</li>

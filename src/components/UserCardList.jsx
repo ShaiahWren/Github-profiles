@@ -1,6 +1,6 @@
 import React from "react";
 import UserCard from "./UserCard";
-import { BrowserRouter as Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
@@ -11,7 +11,7 @@ const UserCardList = (props) => {
       
         <ul>
           {users.map((user) => (
-            <Link to={`/user/${user.login}`}>
+            <Link to={`/user/${user.login}`} key={user.login}>
               <UserCard user={user}/>
             </Link>
           ))}

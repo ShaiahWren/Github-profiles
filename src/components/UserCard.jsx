@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Card, Image, Title, Media } from "bloomer";
 import { CardImage } from "bloomer/lib/components/Card/CardImage";
@@ -8,7 +8,7 @@ const UserCard = ( props) => {
     const { user } = props;
     return (
         <Card>
-            <div class="card-wrapper">
+            <div className="card-wrapper">
           <li className="user-card">
             <CardImage>
              
