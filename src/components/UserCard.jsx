@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter as Link } from 'react-router-dom';
+
 import { Card, Image, Title, Media } from "bloomer";
 import { CardImage } from "bloomer/lib/components/Card/CardImage";
 
@@ -9,11 +11,15 @@ const UserCard = ( props) => {
             <div class="card-wrapper">
           <li className="user-card">
             <CardImage>
-  
-            <Image 
-              src={user.avatar_url}
-              alt={`${user.avatar_url}`}
-            />
+             
+              <Link to={`/user/${user.login}`}>
+                <Image 
+                  src={user.avatar_url}
+                  alt={`${user.avatar_url}`}
+                />
+              </Link>
+         
+           
             </CardImage>
             <Media>
                 <Title isSize={4}>

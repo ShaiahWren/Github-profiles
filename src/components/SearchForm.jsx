@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import UserCardList from "./UserCardList";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Container } from 'bloomer/lib/layout/Container';
+import UserProfile from './UserProfile';
 
 
 class SearchForm extends Component {
@@ -34,15 +37,22 @@ class SearchForm extends Component {
     render() {
         return (
             <>
-            <h1>Github Users</h1>
-            <form onSubmit={this._handleSubmit}>
-                <label>
-                    Enter User Name
-                    <input type="text" onChange={(event) => this._handleChange(event.target.value)}/>
-                </label>
-                <button type="submit">Search</button>
-            </form>
-            <UserCardList users={this.state.users}/>
+            <Route exact path="/">Github Users
+                <h1>Github Users</h1>
+                <form onSubmit={this._handleSubmit}>
+                    <label>
+                        Enter User Name
+                        <input type="text" onChange={(event) => this._handleChange(event.target.value)}/>
+                    </label>
+                    <button type="submit">Search</button>
+                </form>
+                    
+                    <UserCardList users={this.state.users}/>
+            </Route>
+            <Route path={`/user/:username`}>
+                
+                <UserProfile users={this.state.users}/>
+            </Route>
             </>
         )
     }
